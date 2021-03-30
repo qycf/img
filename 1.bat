@@ -1,0 +1,1 @@
+for /f "delims=" %%A in ('dir *.mp4 /b /s') do %~dp0core\ffmpeg.exe -i "%%A" -c copy -bsf:v h264_mp4toannexb -hls_list_size 0 -start_number 0 -hls_time 10 -hls_list_size 0 -f hls "%%A.m3u8"
